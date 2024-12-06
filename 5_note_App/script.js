@@ -2,14 +2,14 @@ const notesContainer = document.querySelector(".notes-container");
 const createBtn = document.querySelector(".btn");
 const notes = document.querySelectorAll(".input-box");
 
-function showNotes() {
-  notesContainer.innerHTML = localStorage.getItem("notes");
-}
-
 showNotes();
 
 function updateStorage() {
   localStorage.setItem("notes", notesContainer.innerHTML);
+}
+
+function showNotes() {
+  notesContainer.innerHTML = localStorage.getItem("notes");
 }
 
 createBtn.addEventListener("click", () => {
@@ -21,7 +21,7 @@ createBtn.addEventListener("click", () => {
   notesContainer.appendChild(inputBox).appendChild(img);
 });
 
-notesContainer.addEventListener("click", function (e) {
+function whileClick(e) {
   if (e.target.tagName === "P") {
     console.log(e.target.tagName);
     notes.forEach((nt) => {
@@ -33,4 +33,6 @@ notesContainer.addEventListener("click", function (e) {
     e.target.parentElement.remove();
     updateStorage();
   }
-});
+}
+
+notesContainer.addEventListener("click", whileClick);

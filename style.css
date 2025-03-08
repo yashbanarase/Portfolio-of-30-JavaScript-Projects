@@ -1,4 +1,7 @@
 .mine {
-  position: absolute;
+  position: fixed;
   bottom: 0px;
+}
+.card-body {
+  height: 240px;
 }
